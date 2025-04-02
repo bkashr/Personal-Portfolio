@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Designs - Ryan Boubsil</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f0f0f;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            padding: 2rem;
+        }
+        .design-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .design-card:hover {
+            transform: translateY(-5px);
+        }
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <h1>Portfolio Design Concepts</h1>
+        <div class="design-grid">
+            <div class="design-card">
+                <h2>Split Design</h2>
+                <p>Clean, modern split-screen layout</p>
+                <a href="split-design.html">View Design</a>
+            </div>
+            
+            <div class="design-card">
+                <h2>Gradient Glass</h2>
+                <p>Subtle gradients with glass morphism</p>
+                <a href="gradient-glass.html">View Design</a>
+            </div>
+            
+            <div class="design-card">
+                <h2>Grid Layout</h2>
+                <p>Architectural grid-based design</p>
+                <a href="grid-layout.html">View Design</a>
+            </div>
+
+            <div class="design-card">
+                <h2>Infinite Scroll</h2>
+                <p>Seamless single-page scrolling experience</p>
+                <a href="infinite-scroll.html">View Design</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

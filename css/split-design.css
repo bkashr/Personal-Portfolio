@@ -1,0 +1,273 @@
+/* Split Design styles here */
+:root {
+    --bg-color: #0f0f0f;
+    --text-color: #ffffff;
+    --accent: #3b82f6;
+    --surface: #1a1a1a;
+    --surface-light: #2a2a2a;
+    --text-secondary: #a0a0a0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    z-index: 1000;
+    padding: 8px 15px;
+    background: var(--surface);
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.back-button:hover {
+    background: var(--surface-light);
+}
+
+.split-container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    min-height: 100vh;
+}
+
+.side-panel {
+    position: fixed;
+    width: 400px;
+    height: 100vh;
+    padding: 4rem;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    background: var(--surface-light);
+    /* Add your profile image here */
+    background-image: url('path-to-your-image.jpg');
+    background-size: cover;
+}
+
+.profile h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+}
+
+.main-content {
+    margin-left: 400px;
+    padding: 4rem;
+}
+
+.section {
+    margin-bottom: 6rem;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-card {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.work-card {
+    background: var(--surface);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+}
+
+.work-image {
+    height: 200px;
+    background: var(--surface-light);
+    /* Add project image here */
+    background-image: url('path-to-project-image.jpg');
+    background-size: cover;
+}
+
+.work-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.work-card p {
+    padding: 0 1.5rem;
+    color: var(--text-secondary);
+}
+
+.tags {
+    padding: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background: var(--surface-light);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: var(--surface);
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #2563eb;
+}
+
+@media (max-width: 1024px) {
+    .split-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .side-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 2rem;
+    }
+}
+
+/* ... rest of split design CSS ... */ 

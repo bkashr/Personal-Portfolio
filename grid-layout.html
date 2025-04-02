@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout - Ryan Boubsil</title>
+    <link rel="stylesheet" href="css/grid-layout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <a href="index.html" class="back-button">← Back to Designs</a>
+    
+    <div class="grid-container">
+        <!-- Header Area -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Ryan Boubsil</h1>
+                <p class="title">Data Analyst & Product Manager</p>
+            </div>
+            <nav class="main-nav">
+                <a href="#about">About</a>
+                <a href="#work">Work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- About Section -->
+            <section id="about" class="section-block">
+                <div class="section-header">
+                    <h2>About</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="section-content">
+                    <p>Transforming data into meaningful insights and creating user-centric products.</p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="skills-block">
+                <div class="skill">
+                    <span class="skill-label">Data Analysis</span>
+                    <div class="skill-bar" data-level="90"></div>
+                </div>
+                <div class="skill">
+                    <span class="skill-label">Product Strategy</span>
+                    <div class="skill-bar" data-level="85"></div>
+                </div>
+                <div class="skill">
+                    <span class="skill-label">UX Research</span>
+                    <div class="skill-bar" data-level="80"></div>
+                </div>
+            </section>
+
+            <!-- Work Section -->
+            <section id="work" class="projects-grid">
+                <div class="project-card">
+                    <div class="project-number">01</div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Interactive data visualization platform</p>
+                    <div class="project-meta">
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Tableau</span>
+                        </div>
+                        <a href="#" class="view-project">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">02</div>
+                    <h3>User Research Study</h3>
+                    <p>Comprehensive analysis of user behavior</p>
+                    <div class="project-meta">
+                        <div class="tags">
+                            <span>Research</span>
+                            <span>Analytics</span>
+                        </div>
+                        <a href="#" class="view-project">View Project →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-block">
+                <div class="section-header">
+                    <h2>Contact</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <a href="mailto:your.email@example.com">your.email@example.com</a>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 

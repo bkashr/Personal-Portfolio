@@ -1,0 +1,457 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent-color: #3b82f6;
+    --secondary-color: #64748b;
+    --surface: #1a1a1a;
+    --node-size: 12px;
+    --line-width: 2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Space Mono', monospace;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none !important; /* Hide default cursor */
+}
+
+/* Main Container */
+.main-container {
+    padding-left: 15vw;
+    max-width: 1400px;
+}
+
+/* Background Elements */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    right: 10%;
+    top: 20%;
+    animation: float 20s infinite linear;
+}
+
+.floating-square {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    right: 20%;
+    bottom: 20%;
+    animation: float 15s infinite linear reverse;
+}
+
+.dot-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.5;
+}
+
+@keyframes float {
+    0% { transform: rotate(0deg) translate(20px) rotate(0deg); }
+    100% { transform: rotate(360deg) translate(20px) rotate(-360deg); }
+}
+
+/* Journey Line */
+.journey-line {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.journey-line .line {
+    position: absolute;
+    width: var(--line-width);
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+}
+
+.journey-line .node {
+    width: var(--node-size);
+    height: var(--node-size);
+    border-radius: 50%;
+    background: var(--surface);
+    border: var(--line-width) solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.journey-line .node.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-bar {
+    width: 100px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--accent-color);
+    transition: width 0.1s ease;
+}
+
+.section-indicator {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* Section Styles */
+.section {
+    min-height: 100vh;
+    padding: 4rem 0;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    padding-right: 2rem;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 8vw;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin: 2rem 0;
+}
+
+h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 4vw;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.overline {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    letter-spacing: 2px;
+}
+
+/* Intro Section */
+.intro-text {
+    position: relative;
+}
+
+.title-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.title-stack span {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.slash {
+    color: var(--accent-color);
+}
+
+/* Work Items */
+.work-items {
+    margin-top: 4rem;
+}
+
+.work-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: var(--surface);
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateX(20px);
+}
+
+.work-year {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent-color);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.tech-stack span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.brutalist-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.brutalist-link:hover {
+    color: var(--accent-color);
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.skill-block {
+    margin-bottom: 2rem;
+}
+
+.skill-bar {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 1rem;
+    position: relative;
+}
+
+.skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--accent-color);
+    width: var(--width);
+    transition: width 1s ease;
+}
+
+.skill-bar[data-level="90"] { --width: 90%; }
+.skill-bar[data-level="85"] { --width: 85%; }
+
+/* Fixed Elements */
+.fixed-elements {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.side-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mono-text {
+    font-family: 'Space Mono', monospace;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.mono-text:hover {
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding-left: 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .work-item {
+        grid-template-columns: 1fr;
+    }
+
+    .work-year {
+        writing-mode: horizontal-tb;
+        margin-bottom: 1rem;
+    }
+}
+
+.scroll-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100vh;
+    background: var(--accent-color);
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.1s ease;
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s ease, height 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Cursor states */
+.custom-cursor.hover {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    mix-blend-mode: difference;
+}
+
+/* Make sure interactive elements show the cursor effect */
+a, button, .work-item, .brutalist-link {
+    cursor: none;
+}
+
+/* Hover indicator for interactive elements */
+.hover-indicator {
+    position: absolute;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.brutalist-link:hover .hover-indicator {
+    opacity: 1;
+}
+
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANdr6EAAAACHRSTlMzMzMzMzMzM85JBgUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAwSURBVDjLY2AYBaNg4IDIxIACRKygApCoMSoQYQUVgESNUYEIK6gAJGqMCkTaAwBvzR4JxLos1gAAAABJRU5ErkJggg==');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.dynamic-tagline {
+    margin-top: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+}
+
+.tag-prefix {
+    color: var(--accent-color);
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+} 
