@@ -18,7 +18,7 @@ A minimalist, interactive portfolio website featuring custom cursor animations, 
 ## Setup
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/bkashr/Personal-Portfolio.git
 ```
 2. Open `index.html` in your browser or use a local server
 

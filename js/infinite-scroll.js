@@ -114,3 +114,19 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollLine.style.transform = `scaleY(${scrollPercent})`;
     });
 }); 
+
+    document.addEventListener("click", function (event) {
+    let bubble = document.createElement("div");
+    bubble.classList.add("bubble");
+
+    // Positioning at click location
+    bubble.style.left = `${event.clientX - 10}px`;
+    bubble.style.top = `${event.clientY - 10}px`;
+
+    document.getElementById("bubble-container").appendChild(bubble);
+
+    // Remove bubble after animation ends
+    setTimeout(() => {
+        bubble.remove();
+    }, 600);
+});

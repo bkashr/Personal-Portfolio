@@ -3,75 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Designs - Ryan Boubsil</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #0f0f0f;
-            color: #ffffff;
-            font-family: 'Space Grotesk', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .design-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            padding: 2rem;
-        }
-        .design-card {
-            background: #1a1a1a;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .design-card:hover {
-            transform: translateY(-5px);
-        }
-        a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ryan Boubsil - Portfolio</title>
+    <link rel="stylesheet" href="css/infinite-scroll.css">
+    <!-- Adding Archivo Black for brutalist headlines -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/infinite-scroll.js" defer></script>
 </head>
 <body>
-    <main>
-        <h1>Portfolio Design Concepts</h1>
-        <div class="design-grid">
-            <div class="design-card">
-                <h2>Split Design</h2>
-                <p>Clean, modern split-screen layout</p>
-                <a href="split-design.html">View Design</a>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+    <div id="bubble-container"></div>
+    <!-- Add this at the top of your body -->
+    <div class="scroll-line"></div>
+
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-square"></div>
+        <div class="dot-grid"></div>
+    </div>
+
+    <!-- Add this after your background-elements div -->
+    <div class="grain-overlay"></div>
+
+    <!-- Main Content Container -->
+    <div class="main-container">
+        <!-- Intro Section -->
+        <section class="section intro" id="intro">
+            <div class="content-wrapper">
+                <div class="intro-text">
+                    <span class="overline">Portfolio</span>
+                    <h1>RYAN<br>BOUBSIL</h1>
+                    <div class="title-stack">
+                        <span class="slash">//</span>
+                        <span>DATA</span>
+                        <span class="slash">//</span>
+                        <span>PRODUCT</span>
+                        <span class="slash">//</span>
+                        <span>DESIGN</span>
+                    </div>
+                    <div class="dynamic-tagline">
+                        <span class="tag-prefix"># </span>
+                        <span class="tag-text"></span>
+                        <span class="cursor">_</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="design-card">
-                <h2>Gradient Glass</h2>
-                <p>Subtle gradients with glass morphism</p>
-                <a href="gradient-glass.html">View Design</a>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>ABOUT ME</h2>
+                </div>
+                <div class="about-container">
+                    <!-- Left side: About content -->
+                    <div class="about-content">
+                        <p class="about-text">
+                            As an emerging data professional, I'm passionate about turning complex data into 
+                            meaningful insights. Currently exploring the intersection of data analysis and 
+                            creative problem-solving, I bring fresh perspectives to each project I tackle.
+                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-number">3+</span>
+                                <span class="highlight-label">Personal Projects</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-number">5+</span>
+                                <span class="highlight-label">Technologies</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right side: Artistic Timeline -->
+                    <div class="timeline">
+                        <div class="timeline-line">
+                            <svg class="timeline-path" viewBox="0 0 100 800" preserveAspectRatio="none">
+                                <!-- Simple, elegant squiggly path -->
+                                <path class="timeline-main" 
+                                      d="M50,0 
+                                         C60,200 40,400 60,600 
+                                         C70,700 45,800 50,800" 
+                                      stroke="var(--accent-color)" 
+                                      stroke-width="2" 
+                                      fill="none" />
+                            </svg>
+                        </div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="timeline-items">
+                            <!-- Current -->
+                            <div class="timeline-item" data-year="NOW">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Learning & Building</h3>
+                                    <p>Developing data visualization projects</p>
+                                </div>
+                            </div>
+
+                            <!-- Project -->
+                            <div class="timeline-item" data-year="2024">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>First Data Project</h3>
+                                    <p>Created interactive dashboards using Python</p>
+                                </div>
+                            </div>
+
+                            <!-- Education -->
+                            <div class="timeline-item" data-year="2023">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Data Analytics Course</h3>
+                                    <p>Completed training in data analysis</p>
+                                </div>
+                            </div>
+
+                            <!-- Beginning -->
+                            <div class="timeline-item" data-year="2023">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>Journey Begins</h3>
+                                    <p>Started learning Python and SQL</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="design-card">
-                <h2>Grid Layout</h2>
-                <p>Architectural grid-based design</p>
-                <a href="grid-layout.html">View Design</a>
+        </section>
+
+
+        
+<!-- Projects Section-->
+<section class="section projects" id="projects">
+    <div class="content-wrapper">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2>PROJECTS</h2>
+        </div>
+        <div class="project-grid">
+
+
+            <!-- Data Platform Project with Results -->
+            <div class="work-item">
+                <span class="work-year">2024</span>
+                <div class="work-content">
+                    <h3>DATA VISUALIZATION PLATFORM</h3>
+                    <div class="tech-stack">
+                        <span>PYTHON</span>
+                        <span>SQL</span>
+                        <span>TABLEAU</span>
+                    </div>
+                    <div class="project-metrics">
+                        <span>↗️ 45% Faster Analysis</span>
+                        <span>📈 2.3M Data Points</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="brutalist-link">VIEW CASE STUDY →</a>
+                        <a href="https://github.com/yourusername/project" class="github-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="design-card">
-                <h2>Infinite Scroll</h2>
-                <p>Seamless single-page scrolling experience</p>
-                <a href="infinite-scroll.html">View Design</a>
+            <!-- Side Project with Video Demo -->
+            <div class="work-item">
+                <span class="work-year">2024</span>
+                <div class="work-content">
+                    <h3>AI PRODUCTIVITY TOOL</h3>
+                    <div class="video-preview">
+                        <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="tech-stack">
+                        <span>REACT</span>
+                        <span>NODE.JS</span>
+                        <span>GPT-4</span>
+                    </div>
+                    <div class="project-metrics">
+                        <span>🚀 1,000+ Users</span>
+                        <span>⭐ 4.8/5 Rating</span>
+                    </div>
+                    <a href="#" class="brutalist-link">TRY IT NOW →</a>
+                </div>
+            </div>
+
+            <!-- Design Project with Process -->
+            <div class="work-item">
+                <span class="work-year">2023</span>
+                <div class="work-content">
+                    <h3>E-COMMERCE REDESIGN</h3>
+                    <div class="tech-stack">
+                        <span>FIGMA</span>
+                        <span>USER RESEARCH</span>
+                        <span>A/B TESTING</span>
+                    </div>
+                    <div class="process-preview">
+                        <span class="process-step">Research</span>
+                        <span class="process-arrow">→</span>
+                        <span class="process-step">Prototype</span>
+                        <span class="process-arrow">→</span>
+                        <span class="process-step">Test</span>
+                    </div>
+                    <div class="project-metrics">
+                        <span>📈 32% Conv. Rate</span>
+                        <span>🎯 89% Task Success</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="brutalist-link">VIEW CASE STUDY →</a>
+                        <a href="https://dribbble.com/yourusername" class="dribbble-link">
+                            <i class="fab fa-dribbble"></i> View Designs
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open Source Project -->
+            <div class="work-item">
+                <span class="work-year">2023</span>
+                <div class="work-content">
+                    <h3>OPEN SOURCE A/B TESTING TOOL</h3>
+                    <div class="tech-stack">
+                        <span>TYPESCRIPT</span>
+                        <span>REACT</span>
+                        <span>AWS</span>
+                    </div>
+                    <div class="github-stats">
+                        <span>⭐ 230 Stars</span>
+                        <span>🔄 45 PRs</span>
+                        <span>👥 12 Contributors</span>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Game-changing tool for our team's experimentation workflow"</p>
+                        <cite>- Lead PM at TechCorp</cite>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="brutalist-link">VIEW PROJECT →</a>
+                        <a href="https://github.com/yourusername/ab-testing-tool" class="github-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
+    </div>
+</section>
+
+        <!-- Skills Section -->
+        <section class="section skills" id="skills">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2>EXPERTISE</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-block">
+                        <h3>DATA ANALYSIS</h3>
+                        <div class="skill-bar" data-level="90"></div>
+                    </div>
+                    <div class="skill-block">
+                        <h3>PRODUCT STRATEGY</h3>
+                        <div class="skill-bar" data-level="85"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fixed Elements -->
+    <div class="fixed-elements">
+        <div class="side-info">
+            <a href="mailto:ryanboubsil@gmail.com" class="mono-text">ryanboubsil@gmail.com</a>
+            <div class="social-links">
+                <a href="#" class="mono-text">GH</a>
+                <a href="#" class="mono-text">LI</a>
+                <a href="#" class="mono-text">TW</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
