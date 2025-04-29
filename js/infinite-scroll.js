@@ -130,3 +130,4 @@ document.addEventListener('DOMContentLoaded', () => {
         bubble.remove();
     }, 600);
 });
+ 
