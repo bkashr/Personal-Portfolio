@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackTrove Case Study - Ryan Boubsil Portfolio</title>
+    <link rel="stylesheet" href="css/infinite-scroll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/infinite-scroll.js" defer></script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+    <div id="bubble-container"></div>
+    <div class="scroll-line"></div>
+
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-square"></div>
+        <div class="dot-grid"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="case-study-nav">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <div class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#user-types">User Types</a>
+            <a href="#prototypes">Prototypes</a>
+            <a href="#metadata">Metadata</a>
+            <a href="#process">Process</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="main-container case-study-container">
+        <!-- Hero Section -->
+        <section class="section hero" id="hero">
+            <div class="content-wrapper">
+                <div class="hero-content">
+                    <span class="overline">Case Study</span>
+                    <h1>TRACKTROVE</h1>
+                    <div class="subtitle">Revolutionizing Music Discovery Through Community & Innovation</div>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Timeline</span>
+                            <span class="meta-value">2024</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Role</span>
+                            <span class="meta-value">Product Designer & UX Researcher</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Tools</span>
+                            <span class="meta-value">Figma, User Research, Product Strategy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="section overview" id="overview">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>PROJECT OVERVIEW</h2>
+                </div>
+                <div class="overview-content">
+                    <div class="overview-text">
+                        <h3>The Challenge</h3>
+                        <p>
+                            Current music streaming platforms like Spotify and Apple Music excel at music delivery but fall short 
+                            in creating meaningful social connections and community engagement. Users lack ways to track their 
+                            musical journey, share discoveries, or connect with fellow music enthusiasts beyond basic playlist sharing.
+                        </p>
+                        
+                        <h3>The Solution</h3>
+                        <p>
+                            TrackTrove bridges the gap between music streaming and social interaction by creating a community-driven 
+                            platform that seamlessly integrates with existing streaming services. Users can track listening history, 
+                            comment on songs, discover new music through personalized recommendations, and build connections with 
+                            other music lovers.
+                        </p>
+
+                        <h3>Key Features</h3>
+                        <ul class="feature-list">
+                            <li><strong>Comprehensive Tracking:</strong> Monitor listening history, create personal music timelines</li>
+                            <li><strong>Social Interaction:</strong> Comment on songs, rate albums, share musical discoveries</li>
+                            <li><strong>Personalized Discovery:</strong> AI-powered recommendations based on listening patterns</li>
+                            <li><strong>Multi-Platform Integration:</strong> Seamless connection with Spotify, Apple Music, and more</li>
+                            <li><strong>Community Building:</strong> Connect with artists, producers, and fellow music enthusiasts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Types Section -->
+        <section class="section user-types" id="user-types">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2>USER TYPES & ROLES</h2>
+                </div>
+                <div class="user-types-grid">
+                    <div class="user-type-card">
+                        <div class="user-type-header">
+                            <i class="fas fa-headphones"></i>
+                            <h3>Listeners</h3>
+                        </div>
+                        <p>Teenagers and adults who enjoy using music applications for creative expression and discovery.</p>
+                        <div class="user-actions">
+                            <h4>Key Actions:</h4>
+                            <ul>
+                                <li>Discover and listen to music</li>
+                                <li>Customize profiles</li>
+                                <li>Private messaging with friends</li>
+                                <li>Comment and rate music</li>
+                                <li>Create private/public accounts</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="user-type-card">
+                        <div class="user-type-header">
+                            <i class="fas fa-microphone"></i>
+                            <h3>Artists</h3>
+                        </div>
+                        <p>Local and well-known artists looking to showcase music and engage with their fanbase.</p>
+                        <div class="user-actions">
+                            <h4>Key Actions:</h4>
+                            <ul>
+                                <li>Showcase music and albums</li>
+                                <li>Sell event tickets and merchandise</li>
+                                <li>Engage with fans directly</li>
+                                <li>Announce important updates</li>
+                                <li>Build fan communities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="user-type-card">
+                        <div class="user-type-header">
+                            <i class="fas fa-music"></i>
+                            <h3>Music Producers</h3>
+                        </div>
+                        <p>Producers worldwide managing artists and songs while building their professional network.</p>
+                        <div class="user-actions">
+                            <h4>Key Actions:</h4>
+                            <ul>
+                                <li>Upload and share music</li>
+                                <li>Manage artist profiles</li>
+                                <li>Announce releases and events</li>
+                                <li>Sell merchandise</li>
+                                <li>Collaborate with artists</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="user-type-card">
+                        <div class="user-type-header">
+                            <i class="fas fa-record-vinyl"></i>
+                            <h3>Record Labels</h3>
+                        </div>
+                        <p>Private and well-known labels managing artist portfolios and releasing music.</p>
+                        <div class="user-actions">
+                            <h4>Key Actions:</h4>
+                            <ul>
+                                <li>Manage artist portfolios</li>
+                                <li>Release and promote music</li>
+                                <li>Access data analytics</li>
+                                <li>Collaborate with artists</li>
+                                <li>Sell merchandise</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="user-type-card">
+                        <div class="user-type-header">
+                            <i class="fas fa-broadcast-tower"></i>
+                            <h3>Radio Stations</h3>
+                        </div>
+                        <p>Local favorites and well-known stations promoting events and engaging listeners.</p>
+                        <div class="user-actions">
+                            <h4>Key Actions:</h4>
+                            <ul>
+                                <li>Edit and share playlists</li>
+                                <li>Promote events and shows</li>
+                                <li>Live stream content</li>
+                                <li>Host audience polls</li>
+                                <li>Spotlight emerging artists</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prototypes Section -->
+        <section class="section prototypes" id="prototypes">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2>USER INTERFACE PROTOTYPES</h2>
+                </div>
+                <div class="prototypes-content">
+                    <div class="prototype-item">
+                        <h3>Home Screen</h3>
+                        <div class="prototype-description">
+                            <p>The main dashboard provides users with personalized music recommendations, recent activity, and quick access to their music library. The interface emphasizes discovery while maintaining easy navigation to familiar content.</p>
+                            <div class="prototype-features">
+                                <span>Personalized Feed</span>
+                                <span>Quick Actions</span>
+                                <span>Recent Activity</span>
+                                <span>Music Discovery</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prototype-item">
+                        <h3>User Profile</h3>
+                        <div class="prototype-description">
+                            <p>Customizable profiles allow users to showcase their musical identity, track listening statistics, and connect with others who share similar tastes. Each user type has tailored profile features.</p>
+                            <div class="prototype-features">
+                                <span>Customizable Layout</span>
+                                <span>Listening Statistics</span>
+                                <span>Social Connections</span>
+                                <span>Music Preferences</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prototype-item">
+                        <h3>Search & Discovery</h3>
+                        <div class="prototype-description">
+                            <p>Advanced search functionality with filters for genre, artist, mood, and more. Search results provide rich information including user reviews, streaming stats, and community engagement.</p>
+                            <div class="prototype-features">
+                                <span>Advanced Filters</span>
+                                <span>Rich Results</span>
+                                <span>Community Reviews</span>
+                                <span>Streaming Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prototype-item">
+                        <h3>Music Detail Views</h3>
+                        <div class="prototype-description">
+                            <p>Comprehensive song and album pages featuring metadata, user reviews, community discussions, and seamless integration with streaming platforms for immediate listening.</p>
+                            <div class="prototype-features">
+                                <span>Rich Metadata</span>
+                                <span>User Reviews</span>
+                                <span>Community Discussion</span>
+                                <span>Streaming Links</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metadata Schema Section -->
+        <section class="section metadata" id="metadata">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2>METADATA SCHEMA DESIGN</h2>
+                </div>
+                <div class="metadata-content">
+                    <div class="schema-overview">
+                        <h3>Schema Architecture</h3>
+                        <p>The TrackTrove metadata schema is designed to handle complex relationships between users, music, and social interactions while maintaining flexibility for future expansion.</p>
+                    </div>
+
+                    <div class="schema-tables">
+                        <div class="schema-table">
+                            <h4>Song Metadata</h4>
+                            <table class="metadata-table">
+                                <thead>
+                                    <tr>
+                                        <th>Property</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>String</td>
+                                        <td>Yes</td>
+                                        <td>"Good 4 U"</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artist</td>
+                                        <td>String</td>
+                                        <td>Yes</td>
+                                        <td>"Olivia Rodrigo"</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Genre</td>
+                                        <td>Controlled Vocabulary</td>
+                                        <td>Yes</td>
+                                        <td>Pop, Rock, EDM, etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Duration</td>
+                                        <td>Time</td>
+                                        <td>Yes</td>
+                                        <td>2:58</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Streams</td>
+                                        <td>Integer</td>
+                                        <td>Yes</td>
+                                        <td>1,998,679,907</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="schema-table">
+                            <h4>User Metadata</h4>
+                            <table class="metadata-table">
+                                <thead>
+                                    <tr>
+                                        <th>Property</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>String</td>
+                                        <td>Yes</td>
+                                        <td>"@mangopomelo"</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Verification</td>
+                                        <td>Boolean + Icon</td>
+                                        <td>No</td>
+                                        <td>☑ Verified</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Favorite Genre</td>
+                                        <td>Array</td>
+                                        <td>No</td>
+                                        <td>["Pop", "Hip Hop"]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Join Date</td>
+                                        <td>Date</td>
+                                        <td>Yes</td>
+                                        <td>Feb 3, 2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Followers</td>
+                                        <td>Integer</td>
+                                        <td>Yes</td>
+                                        <td>500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="section process" id="process">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2>DESIGN PROCESS</h2>
+                </div>
+                <div class="process-content">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Research & Analysis</h3>
+                            <p>Conducted comprehensive analysis of existing music platforms, identified user pain points, and researched competitor features to understand market gaps.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>User Type Definition</h3>
+                            <p>Defined six distinct user types with detailed personas, use cases, and feature requirements to ensure comprehensive platform coverage.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Metadata Schema Design</h3>
+                            <p>Designed flexible metadata schema to handle complex relationships between users, music, and social interactions while maintaining scalability.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Prototype Development</h3>
+                            <p>Created detailed UI prototypes for key user flows, focusing on intuitive navigation and seamless integration with existing streaming services.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">05</div>
+                        <div class="step-content">
+                            <h3>Validation & Iteration</h3>
+                            <p>Conducted user testing with target audiences, gathered feedback, and iterated on designs to ensure optimal user experience across all user types.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="section next-steps">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2>NEXT STEPS</h2>
+                </div>
+                <div class="next-steps-content">
+                    <div class="next-step-item">
+                        <h3>Development Phase</h3>
+                        <p>Begin frontend development with React Native for mobile-first experience, focusing on core user flows and streaming service integration.</p>
+                    </div>
+                    <div class="next-step-item">
+                        <h3>User Testing</h3>
+                        <p>Conduct extensive user testing with representatives from each user type to validate design decisions and identify improvement opportunities.</p>
+                    </div>
+                    <div class="next-step-item">
+                        <h3>Platform Expansion</h3>
+                        <p>Expand integration beyond Spotify and Apple Music to include Amazon Music, YouTube Music, and other emerging platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fixed Elements -->
+    <div class="fixed-elements">
+        <div class="side-info">
+            <a href="mailto:ryanboubsil@gmail.com" class="mono-text">ryanboubsil@gmail.com</a>
+            <div class="social-links">
+                <a href="#" class="mono-text">GH</a>
+                <a href="#" class="mono-text">LI</a>
+                <a href="#" class="mono-text">TW</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
