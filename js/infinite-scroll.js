@@ -64,44 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorDot.style.display = 'block';
     });
 
-    // Dynamic tagline
-    const taglines = [
-        "Building data-driven solutions",
-        "Crafting user experiences",
-        "Analyzing patterns",
-        "Creating insights"
-    ];
-    
-    const tagText = document.querySelector('.tag-text');
-    let currentTag = 0;
-    let currentChar = 0;
-    let isDeleting = false;
-    
-    function typeTag() {
-        const current = taglines[currentTag];
-        
-        if (isDeleting) {
-            tagText.textContent = current.substring(0, currentChar--);
-        } else {
-            tagText.textContent = current.substring(0, currentChar++);
-        }
-        
-        if (!isDeleting && currentChar === current.length) {
-            isDeleting = true;
-            setTimeout(typeTag, 2000);
-            return;
-        }
-        
-        if (isDeleting && currentChar === 0) {
-            isDeleting = false;
-            currentTag = (currentTag + 1) % taglines.length;
-        }
-        
-        const speed = isDeleting ? 50 : 100;
-        setTimeout(typeTag, speed);
-    }
-    
-    typeTag();
 
     // Scroll progress
     const scrollLine = document.querySelector('.scroll-line');
