@@ -1,4 +1,10 @@
-.DS_Store
-node_modules/
-.vscode/
-*.log 
+# Ignore everything outside the portfolio directory
+/*
+!index.html
+!hockey-martingale-case-study.html
+!tracktrove-case-study.html
+!README.md
+!css/
+!js/
+!css/*
+!js/*

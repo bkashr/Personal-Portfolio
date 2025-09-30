@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey Martingale Strategy - Ryan Boubsil</title>
+    <link rel="stylesheet" href="css/infinite-scroll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .case-study-header {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-study-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .case-study-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .project-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        .project-subtitle {
+            font-family: 'Space Mono', monospace;
+            color: #888;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .meta-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .meta-label {
+            font-family: 'Space Mono', monospace;
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+        
+        .meta-value {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-content {
+            color: #cccccc;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-title {
+            font-family: 'Archivo Black', sans-serif;
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #888;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .tech-item {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 10px 20px;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .code-snippet {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        
+        .code-snippet pre {
+            color: #cccccc;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #888;
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #ffffff;
+        }
+        
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #ffffff;
+        }
+        
+        .github-link:hover {
+            background: transparent;
+            color: #ffffff;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .data-table th {
+            font-family: 'Space Mono', monospace;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+        }
+        
+        .data-table td {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .tech-stack {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+    <div id="bubble-container"></div>
+    <div class="scroll-line"></div>
+
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-square"></div>
+        <div class="dot-grid"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <!-- Header Section -->
+    <header class="case-study-header">
+        <div class="case-study-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+            
+            <h1 class="project-title">HOCKEY<br>MARTINGALE<br>STRATEGY</h1>
+            <p class="project-subtitle">Sports Betting Analysis & Algorithm Development</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Timeline</div>
+                    <div class="meta-value">2024</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Category</div>
+                    <div class="meta-value">Data Analysis & Algorithm Design</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Data Points</div>
+                    <div class="meta-value">32 Games Analyzed</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Repository</div>
+                    <div class="meta-value">
+                        <a href="https://github.com/bkashr/hockey-martingale" target="_blank" style="color: #ffffff; text-decoration: none;">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Overview -->
+    <section class="section">
+        <h2 class="section-title">Project Overview</h2>
+        <div class="section-content">
+            <p>This project represents a comprehensive analysis of NHL betting markets, specifically focusing on "goal scored in first 5/10 minutes" prop bets. After identifying potential opportunities in FanDuel's niche betting options, I systematically collected real-world data across 32 games, tracking team matchups, over/under odds, goal timing statistics, and betting outcomes.</p>
+            
+            <p>The project evolved from simple data collection into a sophisticated martingale simulation framework that evaluates betting strategies across thousands of iterations. This data-driven approach bridges sports analytics with algorithmic trading concepts, demonstrating the practical application of statistical modeling in real-world scenarios.</p>
+        </div>
+        
+        <div class="tech-stack">
+            <span class="tech-item">Python</span>
+            <span class="tech-item">Data Analysis</span>
+            <span class="tech-item">Statistical Modeling</span>
+            <span class="tech-item">Algorithm Design</span>
+            <span class="tech-item">CSV Data Processing</span>
+            <span class="tech-item">Simulation Framework</span>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section">
+        <h2 class="section-title">Key Findings</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">34.38%</span>
+                <span class="stat-label">5-Minute Goal Success Rate</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">68.75%</span>
+                <span class="stat-label">10-Minute Goal Success Rate</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">2.752</span>
+                <span class="stat-label">Average 5-Min Odds (Decimal)</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">1.678</span>
+                <span class="stat-label">Average 10-Min Odds (Decimal)</span>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h3 class="highlight-title">Strategic Insights</h3>
+            <p><strong>5-Minute Strategy:</strong> High volatility with frequent losing streaks due to low success rate (34.38%), but higher potential rewards with average odds of +175 American.</p>
+            <p><strong>10-Minute Strategy:</strong> More sustainable approach with 68.75% success rate, offering lower risk but reduced profit per bet at approximately -147 American odds.</p>
+        </div>
+    </section>
+
+    <!-- Data Structure -->
+    <section class="section">
+        <h2 class="section-title">Data Architecture</h2>
+        
+        <div class="section-content">
+            <p>The project utilizes a comprehensive dataset structure that captures multiple dimensions of hockey betting data. Each game record includes detailed odds information, outcome tracking, and contextual statistics that enable sophisticated analysis.</p>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Description</th>
+                    <th>Data Type</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Date</td>
+                    <td>Game date</td>
+                    <td>String</td>
+                    <td>Temporal analysis</td>
+                </tr>
+                <tr>
+                    <td>Game</td>
+                    <td>Team matchup</td>
+                    <td>String</td>
+                    <td>Team-specific analysis</td>
+                </tr>
+                <tr>
+                    <td>5 Minute Goal Odds</td>
+                    <td>American odds for 5-minute goal</td>
+                    <td>Integer</td>
+                    <td>Risk/reward calculation</td>
+                </tr>
+                <tr>
+                    <td>10 Minute Goal Odds</td>
+                    <td>American odds for 10-minute goal</td>
+                    <td>Integer</td>
+                    <td>Strategy comparison</td>
+                </tr>
+                <tr>
+                    <td>5MG Y/N</td>
+                    <td>Goal occurred in first 5 minutes</td>
+                    <td>Boolean</td>
+                    <td>Success rate calculation</td>
+                </tr>
+                <tr>
+                    <td>10MG Y/N</td>
+                    <td>Goal occurred in first 10 minutes</td>
+                    <td>Boolean</td>
+                    <td>Strategy validation</td>
+                </tr>
+                <tr>
+                    <td>Over/Under</td>
+                    <td>Total goals line</td>
+                    <td>Float</td>
+                    <td>Game context analysis</td>
+                </tr>
+                <tr>
+                    <td>Final Total</td>
+                    <td>Actual total goals scored</td>
+                    <td>Integer</td>
+                    <td>Outcome verification</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Algorithm Design -->
+    <section class="section">
+        <h2 class="section-title">Martingale Simulation Framework</h2>
+        
+        <div class="section-content">
+            <p>The core of this project lies in the martingale simulation algorithm, which tests betting strategies under various scenarios. The simulation framework allows for comprehensive analysis of risk management, bankroll optimization, and strategy validation.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h3 class="highlight-title">Simulation Parameters</h3>
+            <ul style="color: #cccccc; line-height: 1.8;">
+                <li><strong>Initial Bankroll:</strong> $150</li>
+                <li><strong>Initial Bet:</strong> $2.50</li>
+                <li><strong>Max Iterations:</strong> 100</li>
+                <li><strong>Bet Doubling:</strong> On losses (classic martingale)</li>
+                <li><strong>Stop Conditions:</strong> Bankroll depletion or insufficient funds</li>
+            </ul>
+        </div>
+        
+        <div class="code-snippet">
+            <pre># Martingale Simulation Logic
+def simulate_martingale(success_rate, odds, initial_bankroll, initial_bet, max_iterations):
+    bankroll = initial_bankroll
+    current_bet = initial_bet
+    
+    for iteration in range(max_iterations):
+        if bankroll < current_bet:
+            break
+            
+        # Simulate bet outcome
+        if random.random() < success_rate:
+            # Win: increase bankroll, reset bet
+            bankroll += current_bet * (odds - 1)
+            current_bet = initial_bet
+        else:
+            # Loss: decrease bankroll, double bet
+            bankroll -= current_bet
+            current_bet *= 2
+    
+    return bankroll</pre>
+        </div>
+    </section>
+
+    <!-- Analysis Results -->
+    <section class="section">
+        <h2 class="section-title">Analysis Results</h2>
+        
+        <div class="section-content">
+            <p>The simulation results reveal critical insights about the viability of different betting strategies. The analysis demonstrates the inherent risks and opportunities present in each approach, providing a realistic assessment of potential outcomes.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h3 class="highlight-title">Strategy Comparison</h3>
+            <p><strong>5-Minute Goal Strategy:</strong> While offering higher potential returns due to favorable odds, this strategy suffers from high volatility and frequent losing streaks. The 34.38% success rate creates significant risk of rapid bankroll depletion.</p>
+            
+            <p><strong>10-Minute Goal Strategy:</strong> The more conservative approach with 68.75% success rate provides greater stability and reduced risk of total loss. However, the lower odds (-147 American) result in smaller individual profits.</p>
+            
+            <p><strong>Realistic Outcomes:</strong> Simulations consistently show bankroll depletion scenarios, highlighting that martingale strategies, while mathematically sound in theory, face practical limitations in real-world betting environments.</p>
+        </div>
+    </section>
+
+    <!-- Technical Implementation -->
+    <section class="section">
+        <h2 class="section-title">Technical Implementation</h2>
+        
+        <div class="section-content">
+            <p>The project consists of multiple Python modules that handle data collection, processing, analysis, and simulation. Each component is designed for modularity and extensibility, allowing for easy updates and enhancements.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h3 class="highlight-title">Core Files</h3>
+            <ul style="color: #cccccc; line-height: 1.8;">
+                <li><strong>Hockey_Martingale.py:</strong> Main simulation program with real betting data</li>
+                <li><strong>Hockey_Betting_Data.csv:</strong> Comprehensive dataset of 32+ games with odds and outcomes</li>
+                <li><strong>Hockey_Stats.csv:</strong> Team statistics data (32 teams, 27 columns)</li>
+                <li><strong>analyze_betting_data.py:</strong> Standalone analysis script for data statistics</li>
+                <li><strong>hockey_analysis.py:</strong> Additional analytical tools and utilities</li>
+                <li><strong>scrape.py:</strong> FanDuel data scraper (future development)</li>
+            </ul>
+        </div>
+        
+        <div class="code-snippet">
+            <pre># Data Processing and Analysis
+import pandas as pd
+import numpy as np
+import random
+
+class HockeyBettingAnalyzer:
+    def __init__(self, data_file):
+        self.data = pd.read_csv(data_file)
+        self.process_odds()
+        self.calculate_success_rates()
+    
+    def process_odds(self):
+        # Convert American odds to decimal
+        self.data['5min_decimal'] = self.data['5 Minute Goal Odds'].apply(
+            lambda x: (x/100) + 1 if x > 0 else (100/abs(x)) + 1
+        )
+    
+    def calculate_success_rates(self):
+        self.five_min_success = self.data['5MG Y/N'].mean()
+        self.ten_min_success = self.data['10MG Y/N'].mean()</pre>
+        </div>
+    </section>
+
+    <!-- Future Enhancements -->
+    <section class="section">
+        <h2 class="section-title">Future Enhancements</h2>
+        
+        <div class="section-content">
+            <p>The project roadmap includes several advanced features that will enhance the analytical capabilities and provide more sophisticated insights into hockey betting patterns.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h3 class="highlight-title">Planned Improvements</h3>
+            
+            <h4 style="color: #ffffff; margin: 20px 0 10px 0; font-size: 1.2rem;">1. Over/Under Categorization</h4>
+            <ul style="color: #cccccc; line-height: 1.8; margin-bottom: 20px;">
+                <li>High O/U Games (6.5+): Analyze early goal patterns in high-scoring games</li>
+                <li>Low O/U Games (5.5 or less): Different betting dynamics for defensive matchups</li>
+                <li>Customized Simulations: Different martingale parameters per category</li>
+            </ul>
+            
+            <h4 style="color: #ffffff; margin: 20px 0 10px 0; font-size: 1.2rem;">2. Team-Specific Analysis</h4>
+            <ul style="color: #cccccc; line-height: 1.8; margin-bottom: 20px;">
+                <li>Offensive Teams: Higher early goal probability identification</li>
+                <li>Defensive Teams: Lower early goal probability assessment</li>
+                <li>Home vs Away: Different success rates based on venue</li>
+                <li>Back-to-Back Games: Fatigue factor integration</li>
+            </ul>
+            
+            <h4 style="color: #ffffff; margin: 20px 0 10px 0; font-size: 1.2rem;">3. Advanced Analytics</h4>
+            <ul style="color: #cccccc; line-height: 1.8;">
+                <li>Win Streak Analysis: Consecutive wins/losses pattern recognition</li>
+                <li>Bankroll Management: Optimal bet sizing algorithms</li>
+                <li>Risk Assessment: Probability of total loss calculations</li>
+                <li>Profit Optimization: Best strategies for different bankroll sizes</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="section">
+        <h2 class="section-title">Key Insights & Learnings</h2>
+        
+        <div class="section-content">
+            <p>This project provided valuable insights into the intersection of sports analytics, statistical modeling, and algorithmic strategy development. The findings highlight both the opportunities and limitations of data-driven betting approaches.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <h3 class="highlight-title">Strategic Takeaways</h3>
+            <p><strong>Data-Driven Decision Making:</strong> The project demonstrates the importance of systematic data collection and analysis in making informed decisions about complex systems like sports betting markets.</p>
+            
+            <p><strong>Risk Management:</strong> While martingale strategies appear mathematically sound, real-world implementation reveals significant risks that can lead to rapid bankroll depletion.</p>
+            
+            <p><strong>Market Efficiency:</strong> The analysis suggests that sportsbooks have effectively priced these markets, making consistent profitability challenging without significant edge identification.</p>
+            
+            <p><strong>Algorithmic Thinking:</strong> The project showcases how algorithmic approaches can be applied to diverse domains, bridging sports analytics with quantitative finance concepts.</p>
+        </div>
+    </section>
+
+    <!-- Project Links -->
+    <section class="section">
+        <div style="text-align: center; padding: 40px 0;">
+            <a href="https://github.com/bkashr/hockey-martingale" target="_blank" class="github-link">
+                <i class="fab fa-github"></i>
+                View Full Code Repository
+            </a>
+        </div>
+    </section>
+
+    <script src="js/infinite-scroll.js"></script>
+</body>
+</html>
